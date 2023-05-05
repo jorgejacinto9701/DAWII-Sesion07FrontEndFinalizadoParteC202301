@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
+import { Docente } from '../models/docente.model';
 
 const baseUrl =  AppSettings.API_ENDPOINT + "/docente";
 
@@ -17,5 +18,8 @@ export class DocenteService {
     return this.http.get(baseUrl + "/listaDocenteConParametros", {params});
   }
   
+  actualizaDocente(obj:Docente):Observable<any>{
+      return this.http.put(baseUrl, obj)
+  }
 }
 

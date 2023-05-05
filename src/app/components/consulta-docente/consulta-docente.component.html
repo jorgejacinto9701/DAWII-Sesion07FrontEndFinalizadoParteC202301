@@ -77,6 +77,7 @@
                             <th>Hora</th>
                             <th>Estado</th>
                             <th>Ubigeo</th>
+                            <th>-</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,6 +89,12 @@
                              <td>{{ aux.fechaRegistro | date:"HH:mm:ss a"}}</td>
                              <td>{{ aux.estado == 1 ? "Activo" : "Inactivo" }}</td>   
                              <td>{{ aux.ubigeo!.departamento }} - {{ aux.ubigeo!.provincia }} - {{ aux.ubigeo!.distrito }}</td>    
+                             <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="id_{{ aux.idDocente }}" (change)="actualizaEstado(aux)" [checked]="aux.estado ==1?true:false">                                         
+                                    <label class="custom-control-label" for="id_{{ aux.idDocente }}"></label>
+                                </div>
+                             </td>
                           </tr>     
                     </tbody>
                 </table>

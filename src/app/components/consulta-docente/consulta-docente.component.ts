@@ -60,6 +60,16 @@ export class ConsultaDocenteComponent implements OnInit {
         );
   }
 
+  actualizaEstado(obj:Docente){
+      obj.estado = obj.estado == 1 ? 0 : 1;
+      this.docenteService.actualizaDocente(obj).subscribe(
+          x =>{
+            this.consultaDocente();
+          }
+      );
+     
+  }
+
   ngOnInit(): void {}
 
 }
